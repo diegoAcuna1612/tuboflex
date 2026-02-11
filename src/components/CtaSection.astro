@@ -1,0 +1,239 @@
+---
+// src/components/CtaSection.astro
+---
+
+<section class="cta-section">
+  <div class="bg-pattern"></div>
+  <div class="glow-effect"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="content-wrapper">
+      <h2 class="animate-fade-up">
+        Potencia la presentación de <br />
+        <span class="text-highlight">tu marca hoy mismo</span>
+      </h2>
+
+      <p class="animate-fade-up delay-100">
+        Calidad de exportación, precios de fábrica y entregas puntuales.
+        Solicita una muestra física o cotiza tu lote de producción ahora.
+      </p>
+
+      <div class="button-group animate-fade-up delay-200">
+        <a href="/contacto" class="btn-main">
+          SOLICITAR COTIZACIÓN
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+
+        <a
+          href="https://wa.me/51999316080"
+          target="_blank"
+          class="btn-secondary"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon-wa"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+              d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"></path><path
+              d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
+            ></path></svg
+          >
+          CONSULTA RÁPIDA
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    position: relative;
+    background: linear-gradient(135deg, #005daa 0%, #004a87 100%);
+    padding: 8rem 1rem;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+  }
+
+  /* Patrón de fondo sutil */
+  .bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 30px 30px;
+    opacity: 0.3;
+  }
+
+  /* Efecto de resplandor para dar volumen */
+  .glow-effect {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(
+      circle,
+      rgba(149, 193, 30, 0.15) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .text-highlight {
+    color: #95c11e; /* Verde Linda Plast */
+    text-shadow: 0 0 20px rgba(149, 193, 30, 0.3);
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Grupo de botones responsive */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* Botón Principal */
+  .btn-main {
+    background: #95c11e;
+    color: white;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    border: 2px solid transparent;
+  }
+
+  .btn-main:hover {
+    background: white;
+    color: #95c11e;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.4);
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s;
+  }
+
+  .btn-main:hover .icon {
+    transform: translateX(4px);
+  }
+
+  /* Botón Secundario (WhatsApp) */
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    transform: translateY(-3px);
+  }
+
+  .icon-wa {
+    stroke-width: 2;
+  }
+
+  /* Animaciones simples de entrada */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .delay-100 {
+    animation-delay: 0.1s;
+  }
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cta-section {
+      padding: 5rem 1rem;
+    }
+    .button-group {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .btn-main,
+    .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

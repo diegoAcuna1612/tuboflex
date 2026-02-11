@@ -1,0 +1,213 @@
+---
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+  StickyHeader,
+} from "astro-navbar";
+---
+
+<StickyHeader
+  class="navbar-wrapper sticky top-0 z-[1000] transition-all duration-300"
+  scrollY={50}
+  activeClass="shadow-lg bg-white/95 backdrop-blur-md"
+  defaultClass="bg-white"
+>
+  <div class="container mx-auto">
+    <Astronav closeOnClick>
+      <nav
+        class="flex flex-col lg:flex-row justify-between items-center p-4 lg:px-8"
+      >
+        <div class="flex w-full lg:w-auto justify-between items-center">
+          <a href="/" class="logo-container">
+            <img src="/logo.png" alt="Tuboflex Perú" class="logo-img" />
+          </a>
+
+          <div class="block lg:hidden">
+            <MenuIcon class="w-8 h-8 text-[#005daa]" />
+          </div>
+        </div>
+
+        <MenuItems class="hidden lg:flex w-full lg:w-auto mt-4 lg:mt-0">
+          <ul
+            class="flex flex-col lg:flex-row lg:gap-8 items-start lg:items-center w-full"
+          >
+            <li><a href="/" class="nav-item active">INICIO</a></li>
+
+            <li>
+              <Dropdown class="group">
+                <button class="nav-item flex items-center gap-1">
+                  <span>NOSOTROS</span>
+                  <svg
+                    class="w-3 h-3 transition-transform group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg
+                  >
+                </button>
+                <DropdownItems class="relative lg:absolute">
+                  <div class="dropdown-card">
+                    <a href="/nosotros#quienes-somos">¿Quiénes Somos?</a>
+                    <a href="/nosotros#mision-vision">Misión y Visión</a>
+                    <a href="/nosotros#infraestructura">Infraestructura</a>
+                  </div>
+                </DropdownItems>
+              </Dropdown>
+            </li>
+
+            <li>
+              <Dropdown class="group">
+                <button class="nav-item flex items-center gap-1">
+                  <span>PRODUCTOS</span>
+                  <svg
+                    class="w-3 h-3 transition-transform group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    ><path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg
+                  >
+                </button>
+                <DropdownItems class="relative lg:absolute">
+                  <div class="dropdown-card">
+                    <a href="#">Tubo ø 13.5</a>
+                    <a href="#">Tubo ø 16.0</a>
+                    <a href="#">Tubo ø 19.0</a>
+                    <a href="#">Tubo ø 22.0</a>
+                  </div>
+                </DropdownItems>
+              </Dropdown>
+            </li>
+
+            <li><a href="#" class="nav-item">VENTAJAS</a></li>
+            <li>
+              <a href="/trabaja-con-nosotros" class="nav-item"
+                >TRABAJA CON NOSOTROS</a
+              >
+            </li>
+
+            <li class="lg:hidden w-full mt-4">
+              <a href="/contacto" class="mobile-contact-btn">CONTÁCTENOS</a>
+            </li>
+          </ul>
+        </MenuItems>
+
+        <div class="hidden lg:flex items-center gap-6">
+          <div class="lang-selector">🌐 ES</div>
+          <a href="/contacto" class="contact-btn">CONTÁCTENOS</a>
+        </div>
+      </nav>
+    </Astronav>
+  </div>
+</StickyHeader>
+
+<style>
+  /* Colores e Identidad Tuboflex */
+  :root {
+    --primary-blue: #005daa;
+    --brand-red: #e31e24;
+    --text-dark: #333333;
+  }
+
+  /* Estilos base */
+  .logo-img {
+    height: 80px;
+    width: auto;
+  }
+
+  .nav-item {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+  }
+
+  .nav-item:hover,
+  .nav-item.active {
+    color: var(--primary-blue);
+  }
+
+  /* Dropdown Card */
+  .dropdown-card {
+    background: white;
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 200px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+  }
+
+  .dropdown-card a {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .dropdown-card a:hover {
+    background: #f8f9fa;
+    color: var(--primary-blue);
+  }
+
+  /* Botones de Contacto */
+  .contact-btn {
+    background: var(--primary-blue);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition:
+      transform 0.2s,
+      background 0.2s;
+  }
+
+  .contact-btn:hover {
+    background: #004a87;
+    transform: translateY(-2px);
+  }
+
+  .mobile-contact-btn {
+    display: block;
+    background: var(--primary-blue);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .lang-selector {
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  /* Estilos específicos para que astro-navbar funcione sin Tailwind si no lo usas */
+  :global(.hidden) {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    :global(.lg\:flex) {
+      display: flex;
+    }
+  }
+</style>

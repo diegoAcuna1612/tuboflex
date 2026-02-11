@@ -1,0 +1,266 @@
+---
+// src/components/Hero.astro
+
+// Solo necesitamos las URLs de las imágenes ahora
+const slides = [{ url: "/images/image1.jpeg" }, { url: "/images/image2.jpeg" }];
+---
+
+<section class="hero-section">
+  <div class="hero-bg-container">
+    {
+      slides.map((slide, index) => (
+        <div
+          class={`hero-slide ${index === 0 ? "active" : ""}`}
+          style={`background-image: url(${slide.url});`}
+        >
+          <div class="overlay" />
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="hero-content">
+    <button class="nav-arrow left" id="prevSlide" aria-label="Anterior">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg
+      >
+    </button>
+
+    <div class="brand-display">
+      <h1 class="main-title">TUBOFLEX</h1>
+      <div class="sub-row">
+        <span class="peru-tag">PERÚ</span>
+      </div>
+      <div class="slogan-container">
+        <p class="slogan">TECNOLOGÍA QUE LIDERA EL FUTURO</p>
+      </div>
+    </div>
+
+    <button class="nav-arrow right" id="nextSlide" aria-label="Siguiente">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg
+      >
+    </button>
+  </div>
+
+  <div class="slide-indicators">
+    {
+      slides.map((_, i) => (
+        <div class={`dot ${i === 0 ? "active" : ""}`} data-index={i} />
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: #050505;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  /* Animación de las imágenes */
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.1); /* Zoom suave */
+    transition:
+      opacity 1s ease-in-out,
+      transform 1.2s ease-out;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+  }
+
+  .brand-display {
+    text-align: center;
+    /* Eliminamos transiciones de texto porque ahora es estático */
+  }
+
+  /* --- ESTILOS DE TEXTO (Outline Style) --- */
+  .main-title {
+    font-size: clamp(3.5rem, 15vw, 10rem);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    margin: 0;
+
+    /* Estilo Transparente con Borde */
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.95);
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.15));
+    text-transform: uppercase;
+  }
+
+  .peru-tag {
+    font-size: clamp(1.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    display: block;
+    text-align: right;
+    margin-top: -0.5rem;
+
+    /* Estilo Transparente con Borde */
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+    opacity: 0.9;
+  }
+
+  .slogan {
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 0.6rem;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    opacity: 0.9;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    display: inline-block;
+    padding-top: 1rem;
+  }
+
+  /* --- Controles --- */
+  .nav-arrow {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .nav-arrow:hover {
+    background: white;
+    color: black;
+    transform: scale(1.1);
+  }
+
+  .slide-indicators {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    width: 30px;
+    background: white;
+  }
+
+  @media (max-width: 768px) {
+    .hero-content {
+      padding: 0 1.5rem;
+    }
+    .nav-arrow {
+      display: none;
+    }
+    .slogan {
+      letter-spacing: 0.3rem;
+    }
+  }
+</style>
+
+<script>
+  // Script simplificado: Solo maneja las imágenes de fondo
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".dot");
+
+  let current = 0;
+  let isAnimating = false;
+
+  function updateSlide(index: number) {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    // Solo cambiamos clases activas
+    slides.forEach((s) => s.classList.remove("active"));
+    dots.forEach((d) => d.classList.remove("active"));
+
+    slides[index].classList.add("active");
+    dots[index].classList.add("active");
+
+    // Pequeño delay para evitar clicks furiosos
+    setTimeout(() => {
+      isAnimating = false;
+    }, 800);
+
+    current = index;
+  }
+
+  document.getElementById("nextSlide")?.addEventListener("click", () => {
+    let next = (current + 1) % slides.length;
+    updateSlide(next);
+  });
+
+  document.getElementById("prevSlide")?.addEventListener("click", () => {
+    let prev = (current - 1 + slides.length) % slides.length;
+    updateSlide(prev);
+  });
+
+  // Auto-play cada 5 segundos
+  setInterval(() => {
+    let next = (current + 1) % slides.length;
+    updateSlide(next);
+  }, 5000);
+</script>

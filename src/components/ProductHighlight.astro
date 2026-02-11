@@ -1,0 +1,345 @@
+---
+// src/components/ProductHighlight.astro
+---
+
+<section class="product-highlight overflow-hidden">
+  <div class="bg-circle"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="content-wrapper">
+      <div class="image-side animate-entry-left">
+        <div class="clean-image-wrapper">
+          <img
+            src="/images/product_image.jpeg"
+            alt="Rollos de Aluminio Tuboflex"
+            class="feature-image"
+          />
+          <div class="image-shadow"></div>
+        </div>
+      </div>
+
+      <div class="text-side animate-entry-right">
+        <div class="badge-container">
+          <span class="tag">SOLUCIONES DE EMPAQUE</span>
+        </div>
+
+        <h2>
+          Precisión en Aluminio para <br /><span class="highlight-text"
+            >Alta Exigencia</span
+          >
+        </h2>
+
+        <p class="description">
+          Fabricamos tubos colapsibles con aluminio de pureza >99.7%,
+          garantizando una <strong>barrera absoluta</strong> contra la luz y el oxígeno.
+          Ideales para preservar la integridad de fórmulas farmacéuticas y cosméticas.
+        </p>
+
+        <div class="specs-grid">
+          <div class="spec-card group">
+            <div class="icon-indicator"></div>
+            <h3 class="spec-title">ø 13.5 <span class="unit">mm</span></h3>
+            <p class="spec-desc">Oftálmico / Muestras</p>
+          </div>
+
+          <div class="spec-card group">
+            <div class="icon-indicator"></div>
+            <h3 class="spec-title">ø 16.0 <span class="unit">mm</span></h3>
+            <p class="spec-desc">Pequeño Formato</p>
+          </div>
+
+          <div class="spec-card group active-card">
+            <div class="icon-indicator"></div>
+            <h3 class="spec-title">ø 19.0 <span class="unit">mm</span></h3>
+            <p class="spec-desc">Estándar Farmacia</p>
+          </div>
+
+          <div class="spec-card group">
+            <div class="icon-indicator"></div>
+            <h3 class="spec-title">ø 22.0 <span class="unit">mm</span></h3>
+            <p class="spec-desc">Cosmético / Industrial</p>
+          </div>
+        </div>
+
+        <div class="cta-wrapper">
+          <a href="/productos" class="btn-primary">
+            VER FICHA TÉCNICA
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="ml-2"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --tuboflex-blue: #005daa;
+    --tuboflex-dark: #003d70;
+    --linda-green: #95c11e;
+    --text-dark: #1e293b;
+    --text-gray: #64748b;
+  }
+
+  .product-highlight {
+    padding: 6rem 0;
+    background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+    position: relative;
+  }
+
+  /* Fondo decorativo movido a la izquierda */
+  .bg-circle {
+    position: absolute;
+    top: -10%;
+    left: -10%; /* CAMBIO: Ahora a la izquierda */
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(
+      circle,
+      rgba(0, 93, 170, 0.05) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  /* --- TEXT SIDE --- */
+  .tag {
+    color: var(--tuboflex-blue);
+    background: rgba(0, 93, 170, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--text-dark);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+  }
+
+  .highlight-text {
+    color: var(--tuboflex-blue);
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight-text::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--linda-green);
+    opacity: 0.3;
+    z-index: -1;
+    transform: skewX(-10deg);
+  }
+
+  .description {
+    color: var(--text-gray);
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    max-width: 95%;
+  }
+
+  /* --- SPECS GRID --- */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .spec-card {
+    background: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spec-card:hover {
+    border-color: var(--tuboflex-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(0, 93, 170, 0.15);
+  }
+
+  .spec-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .unit {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-weight: 600;
+  }
+
+  .spec-desc {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    margin: 0.2rem 0 0 0;
+  }
+
+  .icon-indicator {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    transition: background-color 0.3s;
+  }
+
+  .spec-card:hover .icon-indicator {
+    background-color: var(--linda-green);
+    box-shadow: 0 0 0 4px rgba(149, 193, 30, 0.2);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    background: var(--tuboflex-blue);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px 0 rgba(0, 93, 170, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: var(--tuboflex-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px 0 rgba(0, 93, 170, 0.4);
+  }
+
+  /* --- IMAGE SIDE --- */
+  .clean-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .clean-image-wrapper:hover .feature-image {
+    transform: scale(1.03);
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 968px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    /* CAMBIO: Eliminado order: -1 porque la imagen ya es la primera en el HTML */
+    .image-side {
+      margin-bottom: 1rem;
+    }
+
+    .text-side {
+      text-align: center;
+    }
+
+    .badge-container,
+    .cta-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .description {
+      margin: 0 auto 2.5rem auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .specs-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- ANIMACIONES --- */
+  .animate-entry-left {
+    animation: fadeInSlideRight 0.8s ease-out forwards;
+  }
+  .animate-entry-right {
+    animation: fadeInSlideLeft 0.8s ease-out forwards;
+  }
+
+  /* De izquierda a centro (para la imagen) */
+  @keyframes fadeInSlideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* De derecha a centro (para el texto) */
+  @keyframes fadeInSlideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>

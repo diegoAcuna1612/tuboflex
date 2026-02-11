@@ -1,0 +1,240 @@
+---
+// src/components/Features.astro
+
+const features = [
+  {
+    // Icono Shield/Escudo
+    iconPath: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+    title: "Barrera Total",
+    desc: "Protección absoluta contra luz, humedad y oxígeno, garantizando la estabilidad de fórmulas farmacéuticas.",
+    color: "#e31e24", // Rojo (Alerta/Protección)
+    bgColor: "rgba(227, 30, 36, 0.1)",
+  },
+  {
+    // Icono Flask/Pureza
+    iconPath:
+      "M10 2v7.31l-2.79 3.99A2 2 0 0 0 7.21 16.5h9.58a2 2 0 0 0 2-3.19L16 9.31V2m-6 0h6", // Modificado para parecer un frasco químico/pureza
+    title: "Alta Pureza >99.7%",
+    desc: "Utilizamos discos de aluminio de primera fusión (slugs) para asegurar un envase inocuo y de grado médico.",
+    color: "#005daa", // Azul (Confianza)
+    bgColor: "rgba(0, 93, 170, 0.1)",
+  },
+  {
+    // Icono Leaf/Hoja
+    iconPath: "M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z",
+    title: "100% Reciclable",
+    desc: "El aluminio es infinitamente reciclable sin perder propiedades, apoyando la economía circular.",
+    color: "#95c11e", // Verde (Eco)
+    bgColor: "rgba(149, 193, 30, 0.1)",
+  },
+  {
+    // Icono Ruler/Precisión
+    iconPath: "M21 6H3M21 12H3M21 18H3", // Simplificado para representar líneas de control/regla
+    title: "Precisión Milimétrica",
+    desc: "Control dimensional riguroso en diámetros 13.5, 16, 19 y 22mm para un ajuste perfecto en líneas de llenado.",
+    color: "#334155", // Gris Oscuro (Ingeniería)
+    bgColor: "rgba(51, 65, 85, 0.1)",
+  },
+];
+---
+
+<section class="features-section">
+  <div class="container mx-auto px-4">
+    <div class="header-center">
+      <span class="tag">POR QUÉ ELEGIRNOS</span>
+      <h2>
+        Ingeniería detrás de <br />
+        <span class="highlight">cada envase</span>
+      </h2>
+      <p class="subtitle">
+        Fusionamos la tecnología del Grupo Linda Plast con la especialización en
+        aluminio.
+      </p>
+    </div>
+
+    <div class="grid-container">
+      {
+        features.map((item) => (
+          <div class="feature-card group">
+            <div
+              class="icon-wrapper"
+              style={`--icon-color: ${item.color}; --bg-color: ${item.bgColor}`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feature-icon"
+              >
+                <path d={item.iconPath} />
+              </svg>
+            </div>
+
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-desc">{item.desc}</p>
+
+            <div class="hover-line" style={`background-color: ${item.color}`} />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section {
+    padding: 6rem 0;
+    background-color: #ffffff;
+    position: relative;
+  }
+
+  /* Fondo de puntos sutil */
+  .features-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header-center {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tag {
+    color: #005daa;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(0, 93, 170, 0.08);
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: #1e293b;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: #005daa;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    font-weight: 300;
+  }
+
+  /* Grid Layout */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Card Styles */
+  .feature-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
+  }
+
+  /* Icono */
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .feature-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--icon-color);
+    stroke-width: 1.5;
+  }
+
+  .feature-card:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  /* Textos */
+  .card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-desc {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Línea animada inferior */
+  .hover-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .feature-card:hover .hover-line {
+    transform: scaleX(1);
+  }
+</style>
