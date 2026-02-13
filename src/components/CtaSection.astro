@@ -1,5 +1,22 @@
 ---
 // src/components/CtaSection.astro
+// Configuración de contactos independientes
+const contactCotizacion = {
+  number: "51999316080",
+  message: encodeURIComponent(
+    "Hola! Deseo solicitar una cotización para mi marca.",
+  ),
+};
+
+const contactAsistencia = {
+  number: "51987654321", // <-- Cambia este por el número de Asistencia Técnica
+  message: encodeURIComponent(
+    "Hola! Necesito soporte o asistencia técnica sobre los productos.",
+  ),
+};
+
+const linkCotizacion = `https://wa.me/${contactCotizacion.number}?text=${contactCotizacion.message}`;
+const linkAsistencia = `https://wa.me/${contactAsistencia.number}?text=${contactAsistencia.message}`;
 ---
 
 <section class="cta-section">
@@ -15,32 +32,15 @@
 
       <p class="animate-fade-up delay-100">
         Calidad de exportación, precios de fábrica y entregas puntuales.
-        Solicita una muestra física o cotiza tu lote de producción ahora.
+        Solicita asesoramiento, muestras físicas o cotiza tu pedido ahora.
       </p>
 
       <div class="button-group animate-fade-up delay-200">
-        <a href="/contacto" class="btn-main">
+        <a href={linkCotizacion} target="_blank" class="btn-main">
           SOLICITAR COTIZACIÓN
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
         </a>
 
-        <a
-          href="https://wa.me/51999316080"
-          target="_blank"
-          class="btn-secondary"
-        >
+        <a href={linkAsistencia} target="_blank" class="btn-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon-wa"
@@ -57,7 +57,7 @@
               d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"
             ></path></svg
           >
-          CONSULTA RÁPIDA
+          ASISTENCIA TÉCNICA
         </a>
       </div>
     </div>

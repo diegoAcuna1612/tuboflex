@@ -1,0 +1,101 @@
+---
+import ProductCard from "./ProductCard.astro";
+
+// DATOS REALES DE TUS IMÁGENES
+const products = [
+  {
+    diameter: "13.5",
+    usage: "Farmacéutico",
+    lengthRange: "de 63 mm. Hasta 85 mm.",
+    capacityRange: "de 3 ml. Hasta 10 ml.",
+    weightRange: "de 3 gr. Hasta 5 gr. Aprox.",
+    material: "Aluminio puro 99.7%",
+    internalCoating: "Barniz Epóxico Fenólico",
+    externalCoating: "Esmalte Sintético Poliéster",
+    printing: "Offset hasta 6 colores",
+    capType: "Tapa cónica M9-1 (Color personalizable)",
+    hermeticity: "Anillo de Látex",
+    image: "/images/13.5.png",
+  },
+  {
+    diameter: "16.0",
+    usage: "Farmacéutico",
+    lengthRange: "de 63 mm. Hasta 100 mm.",
+    capacityRange: "de 5 ml. Hasta 15 ml.",
+    weightRange: "de 5 gr. Hasta 10 gr. Aprox.",
+    material: "Aluminio puro 99.7%",
+    internalCoating: "Barniz Epóxico Fenólico",
+    externalCoating: "Esmalte Sintético Poliéster",
+    printing: "Offset hasta 6 colores",
+    capType: "Tapa cónica M9-1 (Color personalizable)",
+    hermeticity: "Anillo de Látex",
+    image: "/images/16.0.png",
+  },
+  {
+    diameter: "19.0",
+    usage: "Farmacéutico, Artístico e Industrial",
+    lengthRange: "de 85 mm. Hasta 123 mm.",
+    capacityRange: "de 8 ml. Hasta 20 ml.",
+    weightRange: "de 10 gr. Hasta 20 gr. Aprox.",
+    material: "Aluminio puro 99.7%",
+    internalCoating: "Barniz Epóxico Fenólico",
+    externalCoating: "Esmalte Sintético Poliéster",
+    printing: "Offset hasta 6 colores",
+    capType: "Tapa cónica M9-1 (Color personalizable)",
+    hermeticity: "Anillo de Látex",
+    image: "/images/19.0.png",
+  },
+  {
+    diameter: "22.0",
+    usage: "Farma, Cosmético, Artístico, Industrial",
+    lengthRange: "de 100 mm. Hasta 140 mm.",
+    capacityRange: "de 10 ml. Hasta 30 ml.",
+    weightRange: "de 20 gr. Hasta 30 gr. Aprox.",
+    material: "Aluminio puro 99.7%",
+    internalCoating: "Barniz Epóxico Fenólico",
+    externalCoating: "Esmalte Sintético Poliéster",
+    printing: "Offset hasta 6 colores",
+    capType: "Tapa cónica M9-1 (Color personalizable)",
+    hermeticity: "Anillo de Látex",
+    image: "/images/22.0.png",
+  },
+];
+---
+
+<section class="py-20 bg-white" id="nuestros-productos">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16 max-w-2xl mx-auto">
+      <span class="text-[#005daa] font-bold text-sm tracking-widest uppercase"
+        >Catálogo Técnico</span
+      >
+      <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4">
+        Nuestra Línea de Tubos
+      </h2>
+      <p class="text-slate-600">
+        Fabricados con la más alta pureza de aluminio (99.7%) y recubrimientos
+        certificados para garantizar la estabilidad de su producto.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        products.map((product) => (
+          <ProductCard
+            diameter={product.diameter}
+            usage={product.usage}
+            lengthRange={product.lengthRange}
+            capacityRange={product.capacityRange}
+            weightRange={product.weightRange}
+            imageSrc={product.image}
+            material={product.material}
+            internalCoating={product.internalCoating}
+            externalCoating={product.externalCoating}
+            printing={product.printing}
+            capType={product.capType}
+            hermeticity={product.hermeticity}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

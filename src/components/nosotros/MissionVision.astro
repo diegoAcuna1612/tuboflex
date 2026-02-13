@@ -3,58 +3,75 @@
 ---
 
 <section
-  class="py-16 lg:py-24 bg-white relative overflow-hidden"
+  class="py-20 lg:py-32 bg-white relative overflow-hidden"
   id="mision-vision"
 >
   <div
-    class="hidden lg:block absolute top-0 right-0 w-1/2 h-full bg-slate-50/50 -z-10 skew-x-12 transform origin-top translate-x-32"
+    class="absolute top-0 right-0 w-1/3 h-full bg-slate-50/80 -z-10 skew-x-6 transform origin-top translate-x-20 hidden lg:block"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-64 h-64 bg-blue-50/50 rounded-full -z-10 blur-3xl -translate-x-1/2 translate-y-1/2"
   >
   </div>
 
-  <div class="container mx-auto px-4 md:px-8">
-    <div class="text-center mb-16">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="max-w-3xl mx-auto text-center mb-20">
       <span
-        class="inline-block py-1 px-3 rounded-full bg-slate-100 text-[#005daa] text-xs font-bold tracking-widest uppercase mb-4"
+        class="inline-block py-1.5 px-4 rounded-full bg-slate-100 text-slate-600 text-[10px] md:text-xs font-black tracking-[0.2em] uppercase mb-6 border border-slate-200"
       >
         Nuestra Identidad
       </span>
-      <h2 class="text-4xl md:text-5xl font-black text-slate-900">
-        ¿Qué nos <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-[#005daa] to-[#003d70]"
-          >Impulsa?</span
+      <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tight">
+        El propósito que nos <br class="hidden md:block" />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[#005daa] to-[#004a87]"
         >
+          mueve cada día
+        </span>
       </h2>
     </div>
 
-    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-24 mb-24">
-      <div class="w-full lg:w-1/2 flex justify-center lg:justify-end">
-        <div
-          class="relative w-full max-w-md lg:max-w-full h-[300px] lg:h-[400px]"
-        >
-          <img
-            src="/images/mission.png"
-            alt="Misión Tuboflex"
-            class="w-full h-full object-contain"
-          />
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32">
+      <div class="w-full lg:w-1/2 group">
+        <div class="relative">
+          <div
+            class="absolute -inset-4 bg-blue-50 rounded-3xl -z-10 transform group-hover:-rotate-2 transition-transform duration-500"
+          >
+          </div>
+          <div class="overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src="/images/mission.jpeg"
+              alt="Misión Tuboflex"
+              class="w-full h-[300px] md:h-[450px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
         </div>
       </div>
 
       <div class="w-full lg:w-1/2 text-center lg:text-left">
-        <h3 class="text-3xl lg:text-4xl font-black text-slate-900 mb-6">
-          Nuestra <span class="text-[#005daa]">Misión</span>
-        </h3>
-        <p
-          class="text-slate-600 text-lg leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
+        <div
+          class="flex items-center justify-center lg:justify-start gap-4 mb-6"
         >
-          Ser <strong class="text-[#005daa]">socios estratégicos</strong> de nuestros
-          clientes, fabricando soluciones que garanticen la <span
-            class="font-bold text-slate-800">máxima protección</span
-          > de sus productos, mediante procesos eficientes y tecnología de punta.
+          <div class="w-12 h-[2px] bg-[#005daa] hidden lg:block"></div>
+          <h3 class="text-3xl lg:text-5xl font-black text-slate-900">
+            Nuestra <span class="text-[#005daa]">Misión</span>
+          </h3>
+        </div>
+        <p
+          class="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
+        >
+          Ser <strong class="text-[#005daa] font-extrabold"
+            >socios estratégicos</strong
+          > de nuestros clientes, fabricando soluciones que garanticen la
+          <span class="text-slate-900 font-bold">máxima protección</span>
+          de sus productos, mediante procesos controlados y tecnología de punta.
         </p>
         <div class="flex justify-center lg:justify-start">
           <a
             href="/contacto"
-            class="bg-[#005daa] text-white px-8 py-3 rounded-full font-bold hover:bg-[#004a87] transition-all shadow-lg shadow-blue-500/30 hover:-translate-y-1"
+            class="inline-flex items-center justify-center bg-[#005daa] !text-white px-10 py-4 rounded-full font-bold hover:bg-[#003d70] transition-all shadow-xl shadow-blue-500/20 hover:-translate-y-1 active:scale-95"
+            style="color: #ffffff !important;"
           >
             Contáctanos
           </a>
@@ -63,36 +80,47 @@
     </div>
 
     <div
-      class="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-24"
+      class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20"
     >
-      <div class="w-full lg:w-1/2 flex justify-center lg:justify-start">
-        <div
-          class="relative w-full max-w-md lg:max-w-full h-[300px] lg:h-[400px]"
-        >
-          <img
-            src="/images/vission.png"
-            alt="Visión Tuboflex"
-            class="w-full h-full object-contain"
-          />
+      <div class="w-full lg:w-1/2 group">
+        <div class="relative">
+          <div
+            class="absolute -inset-4 bg-blue-50 rounded-3xl -z-10 transform group-hover:rotate-2 transition-transform duration-500"
+          >
+          </div>
+          <div class="overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src="/images/vission.jpeg"
+              alt="Visión Tuboflex"
+              class="w-full h-[300px] md:h-[450px] object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
         </div>
       </div>
 
       <div class="w-full lg:w-1/2 text-center lg:text-left">
-        <h3 class="text-3xl lg:text-4xl font-black text-slate-900 mb-6">
-          Nuestra <span class="text-[#95c11e]">Visión</span>
-        </h3>
-        <p
-          class="text-slate-600 text-lg leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0"
+        <div
+          class="flex items-center justify-center lg:justify-start gap-4 mb-6"
         >
-          Ser la <strong class="text-[#95c11e]">empresa líder</strong> en tubos colapsibles
-          en el Perú y la región; distinguiéndonos por nuestra <span
-            class="font-bold text-slate-800">capacidad de adaptación</span
-          > a las necesidades del mercado y compromiso sostenible.
+          <div class="w-12 h-[2px] bg-[#005daa] hidden lg:block"></div>
+          <h3 class="text-3xl lg:text-5xl font-black text-slate-900">
+            Nuestra <span class="text-[#005daa]">Visión</span>
+          </h3>
+        </div>
+        <p
+          class="text-slate-600 text-lg md:text-xl leading-relaxed mb-10 max-w-xl mx-auto lg:mx-0"
+        >
+          Ser la <strong class="text-[#005daa] font-extrabold"
+            >empresa líder</strong
+          > en tubos colapsibles en el Perú y la región; distinguiéndonos por nuestra
+          <span class="text-slate-900 font-bold">capacidad de adaptación</span> a
+          las necesidades del mercado y el compromiso sostenible.
         </p>
         <div class="flex justify-center lg:justify-start">
           <a
-            href="/nosotros"
-            class="bg-[#95c11e] text-white px-8 py-3 rounded-full font-bold hover:bg-[#7a9e18] transition-all shadow-lg shadow-lime-500/30 hover:-translate-y-1"
+            href="/contacto"
+            class="inline-flex items-center justify-center bg-[#005daa] !text-white px-10 py-4 rounded-full font-bold hover:bg-[#003d70] transition-all shadow-xl shadow-blue-500/20 hover:-translate-y-1 active:scale-95"
+            style="color: #ffffff !important;"
           >
             Contáctanos
           </a>
@@ -101,3 +129,10 @@
     </div>
   </div>
 </section>
+
+<style>
+  section {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-content-smoothing: grayscale;
+  }
+</style>

@@ -1,9 +1,33 @@
 ---
 // src/components/contact-us/Contact.astro
+
+// Coordenadas extraídas de tu enlace Waze original para precisión en Google Maps
+const googleMapsLink =
+  "https://www.google.com/maps/search/?api=1&query=-11.9146498,-76.9627295";
+
+// Configuración de contactos (Misma que CtaSection)
+const contactCotizacion = {
+  number: "51999316080",
+  message: encodeURIComponent(
+    "Hola! Deseo solicitar una cotización para mi marca.",
+  ),
+};
+
+const contactAsistencia = {
+  number: "51987654321", // Debe coincidir con el de CtaSection
+  message: encodeURIComponent(
+    "Hola! Necesito soporte o asistencia técnica sobre los productos.",
+  ),
+};
+
+const linkCotizacion = `https://wa.me/${contactCotizacion.number}?text=${contactCotizacion.message}`;
+const linkAsistencia = `https://wa.me/${contactAsistencia.number}?text=${contactAsistencia.message}`;
 ---
 
-<section class="contact-section relative overflow-hidden bg-slate-50 py-20">
-  <!-- Fondo decorativo -->
+<section
+  class="contact-section relative overflow-hidden bg-slate-50 py-20"
+  id="contacto"
+>
   <div
     class="pointer-events-none absolute -left-20 top-20 h-96 w-96 rounded-full bg-[#005daa] opacity-5 blur-3xl mix-blend-multiply"
   >
@@ -30,19 +54,21 @@
     </div>
 
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
-      <!-- Columna de Información -->
       <div class="flex flex-col gap-10">
-        <!-- Tarjeta de Info -->
         <div class="rounded-2xl bg-white p-8 shadow-lg shadow-slate-200/50">
           <h3 class="mb-6 text-2xl font-bold text-slate-900">
             Información de Contacto
           </h3>
 
-          <div class="space-y-8">
-            <!-- Dirección -->
-            <div class="flex items-start gap-4">
+          <div class="space-y-6">
+            <a
+              href={googleMapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-4 p-3 -mx-3 rounded-xl transition-all hover:bg-slate-50"
+            >
               <div
-                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#005daa]/10 text-[#005daa]"
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#005daa]/10 text-[#005daa] transition-transform group-hover:scale-110 group-hover:bg-[#005daa] group-hover:text-white"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -64,18 +90,28 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-900">Planta Principal</h4>
-                <p class="text-slate-600 leading-relaxed text-sm">
+                <h4
+                  class="font-bold text-slate-900 group-hover:text-[#005daa] transition-colors"
+                >
+                  Planta Principal
+                </h4>
+                <p
+                  class="text-slate-600 leading-relaxed text-sm group-hover:text-slate-800"
+                >
                   Asociación El Olivar del Valle / Anexo 22, Calle Sr. de los
                   Milagros, San Antonio de Chaclla
                 </p>
               </div>
-            </div>
+            </a>
 
-            <!-- Ventas -->
-            <div class="flex items-start gap-4">
+            <a
+              href={linkCotizacion}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-4 p-3 -mx-3 rounded-xl transition-all hover:bg-slate-50"
+            >
               <div
-                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#95c11e]/10 text-[#95c11e]"
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#95c11e]/10 text-[#95c11e] transition-transform group-hover:scale-110 group-hover:bg-[#95c11e] group-hover:text-white"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -93,20 +129,27 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-900">Ventas</h4>
-                <a
-                  href="tel:+51999316080"
-                  class="block text-slate-600 hover:text-[#005daa] transition-colors"
+                <h4
+                  class="font-bold text-slate-900 group-hover:text-[#95c11e] transition-colors"
                 >
-                  +51 999 316 080
-                </a>
+                  Ventas
+                </h4>
+                <span
+                  class="block text-slate-600 group-hover:text-slate-900 transition-colors"
+                >
+                  +{contactCotizacion.number}
+                </span>
               </div>
-            </div>
+            </a>
 
-            <!-- Consultas -->
-            <div class="flex items-start gap-4">
+            <a
+              href={linkAsistencia}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-4 p-3 -mx-3 rounded-xl transition-all hover:bg-orange-50/50"
+            >
               <div
-                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-500"
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-orange-500 transition-transform group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -124,20 +167,25 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-900">Consultas</h4>
-                <a
-                  href="tel:+51987654321"
-                  class="block text-slate-600 hover:text-[#005daa] transition-colors"
+                <h4
+                  class="font-bold text-slate-900 group-hover:text-orange-600 transition-colors"
                 >
-                  +51 987 654 321
-                </a>
+                  Asistencia Técnica
+                </h4>
+                <span
+                  class="block text-slate-600 group-hover:text-slate-900 transition-colors"
+                >
+                  +{contactAsistencia.number}
+                </span>
               </div>
-            </div>
+            </a>
 
-            <!-- Email -->
-            <div class="flex items-start gap-4">
+            <a
+              href="mailto:ventas@grupolindaplast.com"
+              class="group flex items-start gap-4 p-3 -mx-3 rounded-xl transition-all hover:bg-slate-100"
+            >
               <div
-                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-600"
+                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-600 transition-transform group-hover:scale-110 group-hover:bg-slate-600 group-hover:text-white"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -155,39 +203,42 @@
                 </svg>
               </div>
               <div>
-                <h4 class="font-bold text-slate-900">Correo Electrónico</h4>
-                <a
-                  href="mailto:ventas@grupolindaplast.com"
-                  class="block break-all text-slate-600 hover:text-[#005daa] transition-colors"
+                <h4
+                  class="font-bold text-slate-900 group-hover:text-slate-700 transition-colors"
+                >
+                  Correo Electrónico
+                </h4>
+                <span
+                  class="block break-all text-slate-600 group-hover:text-slate-900 transition-colors"
                 >
                   ventas@grupolindaplast.com
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
 
-        <!-- Mapa (Embed Simple) -->
         <div
-          class="h-64 w-full overflow-hidden rounded-2xl shadow-md border border-slate-200"
+          class="h-64 w-full overflow-hidden rounded-2xl shadow-md border border-slate-200 relative group"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d975.3976867375171!2d-76.96327667148196!3d-11.9146498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105dbbc7018f2ab%3A0xf180830dc2890397!2sTuboFlex%20Peru!5e0!3m2!1ses-419!2spe!4v1707530800000!5m2!1ses-419!2spe"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3903.656565656565!2d-76.9627295!3d-11.9146498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDU0JzUyLjciUyA3NsKwNTcnNDUuOCJX!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe"
             width="100%"
             height="100%"
             style="border:0;"
             allowfullscreen=""
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            referrerpolicy="no-referrer-when-downgrade"
+            class="grayscale group-hover:grayscale-0 transition-all duration-500"
+          ></iframe>
         </div>
 
-        <!-- Botones de Navegación -->
         <div class="flex gap-4">
           <a
             href="https://waze.com/ul?ll=-11.9146498,-76.9627295&navigate=yes"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#33ccff] px-4 py-3 text-sm font-bold text-white transition-all hover:bg-[#00aadd] hover:shadow-lg"
+            class="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#33ccff] px-4 py-3 text-sm font-bold text-white transition-all hover:bg-[#00aadd] hover:shadow-lg hover:-translate-y-1"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -203,10 +254,10 @@
           </a>
 
           <a
-            href="https://www.google.com/maps/dir//TuboFlex+Peru/@-11.9147102,-76.9632431,18z/data=!4m9!4m8!1m0!1m5!1m1!1s0x9105dbbc7018f2ab:0xf180830dc2890397!2m2!1d-76.9627295!2d-11.9146498!3e0?entry=ttu"
+            href={googleMapsLink}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#4285F4] px-4 py-3 text-sm font-bold text-white transition-all hover:bg-[#3367d6] hover:shadow-lg"
+            class="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#4285F4] px-4 py-3 text-sm font-bold text-white transition-all hover:bg-[#3367d6] hover:shadow-lg hover:-translate-y-1"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -223,7 +274,6 @@
         </div>
       </div>
 
-      <!-- Columna del Formulario -->
       <div
         class="lg:sticky lg:top-24 h-fit rounded-3xl bg-white p-8 shadow-2xl lg:p-10 border border-slate-100"
       >
@@ -294,7 +344,7 @@
 
           <button
             type="submit"
-            class="w-full rounded-lg bg-[#005daa] px-8 py-4 text-center font-bold text-white transition-all hover:bg-[#004a87] hover:shadow-lg hover:shadow-blue-500/30 active:scale-[0.98]"
+            class="w-full rounded-lg bg-[#005daa] px-8 py-4 text-center font-bold text-white transition-all hover:bg-[#004a87] hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 active:scale-[0.98]"
           >
             ENVIAR MENSAJE
           </button>

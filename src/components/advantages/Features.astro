@@ -1,39 +1,57 @@
 ---
 // src/components/Features.astro
-
 const features = [
   {
     // Icono Shield/Escudo
     iconPath: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
     title: "Barrera Total",
-    desc: "Protección absoluta contra luz, humedad y oxígeno, garantizando la estabilidad de fórmulas farmacéuticas.",
-    color: "#e31e24", // Rojo (Alerta/Protección)
+    desc: "Protección absoluta contra humedad y oxígeno, garantizando la estabilidad de fórmulas farmacéuticas.",
+    color: "#e31e24", // Rojo
     bgColor: "rgba(227, 30, 36, 0.1)",
+  },
+  {
+    // Icono Sun/UV (NUEVO)
+    iconPath:
+      "M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0 M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7",
+    title: "Bloqueo 100% UV",
+    desc: "Evitamos reacciones químicas no deseadas bloqueando totalmente la radiación ultravioleta.",
+    color: "#f59e0b", // Ámbar/Sol
+    bgColor: "rgba(245, 158, 11, 0.1)",
   },
   {
     // Icono Flask/Pureza
     iconPath:
-      "M10 2v7.31l-2.79 3.99A2 2 0 0 0 7.21 16.5h9.58a2 2 0 0 0 2-3.19L16 9.31V2m-6 0h6", // Modificado para parecer un frasco químico/pureza
+      "M10 2v7.31l-2.79 3.99A2 2 0 0 0 7.21 16.5h9.58a2 2 0 0 0 2-3.19L16 9.31V2m-6 0h6",
     title: "Alta Pureza >99.7%",
-    desc: "Utilizamos discos de aluminio de primera fusión (slugs) para asegurar un envase inocuo y de grado médico.",
-    color: "#005daa", // Azul (Confianza)
+    desc: "Utilizamos discos de aluminio de primera fusión (slugs) para asegurar un envase inocuo de grado médico.",
+    color: "#005daa", // Azul
     bgColor: "rgba(0, 93, 170, 0.1)",
+  },
+  {
+    // Icono Gamma/Radioactividad controlada (NUEVO)
+    iconPath:
+      "M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0 M2 12c0 5.5 4.5 10 10 10s10 -4.5 10 -10 M12 22v-10 M12 12l8.7 5M12 12l-8.7 5",
+    title: "Esterilización Gamma",
+    desc: "Material totalmente adecuado para procesos de esterilización por ionización gamma.",
+    color: "#7c3aed", // Violeta
+    bgColor: "rgba(124, 58, 237, 0.1)",
   },
   {
     // Icono Leaf/Hoja
     iconPath: "M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z",
     title: "100% Reciclable",
     desc: "El aluminio es infinitamente reciclable sin perder propiedades, apoyando la economía circular.",
-    color: "#95c11e", // Verde (Eco)
+    color: "#95c11e", // Verde
     bgColor: "rgba(149, 193, 30, 0.1)",
   },
   {
-    // Icono Ruler/Precisión
-    iconPath: "M21 6H3M21 12H3M21 18H3", // Simplificado para representar líneas de control/regla
-    title: "Precisión Milimétrica",
-    desc: "Control dimensional riguroso en diámetros 13.5, 16, 19 y 22mm para un ajuste perfecto en líneas de llenado.",
-    color: "#334155", // Gris Oscuro (Ingeniería)
-    bgColor: "rgba(51, 65, 85, 0.1)",
+    // Icono Box/Hand (NUEVO)
+    iconPath:
+      "M7 11.5V14m0-2.5v-6a1.5 1.5 0 1 1 3 0V11m0-5.5v-1a1.5 1.5 0 1 1 3 0V11m0-6.5v-1a1.5 1.5 0 1 1 3 0V11m0-7.5a1.5 1.5 0 0 1 3 0v10.5a7 7 0 1 1-14 0V11.5a1.5 1.5 0 1 1 3 0z",
+    title: "Ergonomía y Uso",
+    desc: "Envase diseñado para facilitar la apertura, dosificación y almacenamiento del producto.",
+    color: "#0891b2", // Cian
+    bgColor: "rgba(8, 145, 178, 0.1)",
   },
 ];
 ---
@@ -46,10 +64,6 @@ const features = [
         Ingeniería detrás de <br />
         <span class="highlight">cada envase</span>
       </h2>
-      <p class="subtitle">
-        Fusionamos la tecnología del Grupo Linda Plast con la especialización en
-        aluminio.
-      </p>
     </div>
 
     <div class="grid-container">
