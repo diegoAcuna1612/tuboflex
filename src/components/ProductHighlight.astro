@@ -24,8 +24,8 @@
         </div>
 
         <h2>
-          Precisión en Aluminio para <br /><span class="highlight-text"
-            >Alta Exigencia</span
+          TECNOLOGÍA EN ENVASES DE ALUMINIO <br />PARA LA INDUSTRIA <span
+            class="highlight-text">FARMACÉUTICA Y COSMÉTICA</span
           >
         </h2>
 
@@ -42,33 +42,33 @@
         </p>
 
         <div class="specs-grid">
-          <div class="spec-card group">
+          <a href="/products" class="spec-card group">
             <div class="icon-indicator"></div>
             <h3 class="spec-title">ø 13.5 <span class="unit">mm</span></h3>
             <p class="spec-desc">Farmacéutico</p>
-          </div>
+          </a>
 
-          <div class="spec-card group">
+          <a href="/products" class="spec-card group">
             <div class="icon-indicator"></div>
             <h3 class="spec-title">ø 16.0 <span class="unit">mm</span></h3>
             <p class="spec-desc">Farmacéutico</p>
-          </div>
+          </a>
 
-          <div class="spec-card group active-card">
+          <a href="/products" class="spec-card group active-card">
             <div class="icon-indicator"></div>
             <h3 class="spec-title">ø 19.0 <span class="unit">mm</span></h3>
             <p class="spec-desc">Farmacéutico, artístico e industrial</p>
-          </div>
+          </a>
 
-          <div class="spec-card group">
+          <a href="/products" class="spec-card group">
             <div class="icon-indicator"></div>
             <h3 class="spec-title">ø 22.0 <span class="unit">mm</span></h3>
             <p class="spec-desc">Farmacéutico y cosmético</p>
-          </div>
+          </a>
         </div>
 
         <div class="cta-wrapper">
-          <a href="/productos" class="btn-primary">
+          <a href="/products" class="btn-primary">
             VER FICHA TÉCNICA
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -197,14 +197,17 @@
   }
 
   .spec-card {
+    display: block;
     background: white;
     padding: 1.2rem;
     border-radius: 12px;
     border: 1px solid #e2e8f0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: default;
+    cursor: pointer;
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
   }
 
   .spec-card:hover {

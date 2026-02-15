@@ -285,7 +285,36 @@ const linkAsistencia = `https://wa.me/${contactAsistencia.number}?text=${contact
           posible.
         </p>
 
-        <form class="space-y-5">
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="space-y-5"
+        >
+          <!-- Web3Forms Access Key -->
+          <input
+            type="hidden"
+            name="access_key"
+            value="50932599-18d2-4416-919d-19d57e79a451"
+          />
+
+          <!-- Campos opcionales para mejorar la experiencia -->
+          <input
+            type="hidden"
+            name="subject"
+            value="Nuevo mensaje de contacto - Tuboflex Perú"
+          />
+          <input
+            type="hidden"
+            name="from_name"
+            value="Formulario Web Tuboflex"
+          />
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="hidden"
+            style="display: none;"
+          />
+
           <div class="space-y-2">
             <label for="name" class="text-sm font-bold text-slate-700"
               >Nombre Completo</label
