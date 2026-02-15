@@ -7,6 +7,7 @@ import {
   DropdownItems,
   StickyHeader,
 } from "astro-navbar";
+import { Image } from "astro:assets";
 
 // Definir la prop para la página activa
 const { activePage = "inicio" } = Astro.props;
@@ -24,8 +25,19 @@ const { activePage = "inicio" } = Astro.props;
         class="flex flex-col lg:flex-row justify-between items-center p-4 lg:px-8"
       >
         <div class="flex w-full lg:w-auto justify-between items-center">
-          <a href="/" class="logo-container">
-            <img src="/logo.png" alt="Tuboflex Perú" class="logo-img" />
+          <a
+            href="/"
+            class="logo-container"
+            aria-label="Ir al inicio de Tuboflex Perú"
+          >
+            <Image
+              src="/logo.png"
+              alt="Logo Tuboflex Perú"
+              width={160}
+              height={80}
+              loading="eager"
+              class="logo-img"
+            />
           </a>
 
           <div class="block lg:hidden">
@@ -36,19 +48,22 @@ const { activePage = "inicio" } = Astro.props;
         <MenuItems class="hidden lg:flex w-full lg:w-auto mt-4 lg:mt-0">
           <ul
             class="flex flex-col lg:flex-row lg:gap-8 items-start lg:items-center w-full"
+            role="menubar"
           >
             <li>
               <a
                 href="/"
                 class={`nav-item ${activePage === "inicio" ? "active" : ""}`}
-                >INICIO</a
+                aria-label="Ir al inicio de Tuboflex Perú">INICIO</a
               >
             </li>
 
-            <li>
+            <li role="none">
               <Dropdown class="group">
                 <button
                   class={`nav-item flex items-center gap-1 ${activePage === "nosotros" ? "active" : ""}`}
+                  aria-haspopup="true"
+                  role="menuitem"
                 >
                   <span>NOSOTROS</span>
                   <svg
@@ -56,6 +71,7 @@ const { activePage = "inicio" } = Astro.props;
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-hidden="true"
                     ><path
                       stroke-linecap="round"
                       stroke-linejoin="round"
@@ -64,9 +80,17 @@ const { activePage = "inicio" } = Astro.props;
                   >
                 </button>
                 <DropdownItems class="relative lg:absolute">
-                  <div class="dropdown-card">
-                    <a href="/nosotros#quienes-somos">¿Quiénes Somos?</a>
-                    <a href="/nosotros#mision-vision">Misión y Visión</a>
+                  <div
+                    class="dropdown-card"
+                    role="menu"
+                    aria-label="Submenu Nosotros"
+                  >
+                    <a href="/nosotros#quienes-somos" role="menuitem"
+                      >¿Quiénes Somos?</a
+                    >
+                    <a href="/nosotros#mision-vision" role="menuitem"
+                      >Misión y Visión</a
+                    >
                     <!--
                     <a href="/nosotros#infraestructura">Infraestructura</a>
                    
