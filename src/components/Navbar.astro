@@ -41,7 +41,8 @@ const { activePage = "inicio" } = Astro.props;
               <a
                 href="/"
                 class={`nav-item ${activePage === "inicio" ? "active" : ""}`}
-                >INICIO</a>
+                >INICIO</a
+              >
             </li>
 
             <li>
@@ -76,14 +77,16 @@ const { activePage = "inicio" } = Astro.props;
               <a
                 href="/products"
                 class={`nav-item ${activePage === "productos" ? "active" : ""}`}
-                >PRODUCTOS</a>
+                >PRODUCTOS</a
+              >
             </li>
 
             <li>
               <a
                 href="/advantages"
                 class={`nav-item ${activePage === "ventajas" ? "active" : ""}`}
-                >VENTAJAS</a>
+                >VENTAJAS</a
+              >
             </li>
             <li>
               <a
@@ -94,14 +97,17 @@ const { activePage = "inicio" } = Astro.props;
             </li>
 
             <li class="lg:hidden w-full mt-4">
-              <a href="/contacto" class="mobile-contact-btn">CONTÁCTENOS</a>
+              <a href="/contacto" class="mobile-contact-btn">CONTÁCTANOS</a>
             </li>
           </ul>
         </MenuItems>
 
         <div class="hidden lg:flex items-center gap-6">
-          <div class="lang-selector">🌐 ES</div>
-          <a href="/contacto" class="contact-btn">CONTÁCTENOS</a>
+          <!-- Botones de Contacto y Idioma 
+         <div class="lang-selector">🌐 ES</div>
+        -->
+
+          <a href="/contacto" class="contact-btn">CONTÁCTANOS</a>
         </div>
       </nav>
     </Astronav>

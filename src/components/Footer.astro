@@ -1,6 +1,16 @@
 ---
 // src/components/Footer.astro
 const currentYear = new Date().getFullYear();
+
+// Configuración de contactos (Sincronizada con Contact.astro)
+const contactCotizacion = {
+  number: "51999316080",
+  message: encodeURIComponent(
+    "Hola! Deseo solicitar una cotización para mi marca.",
+  ),
+};
+
+const linkCotizacion = `https://wa.me/${contactCotizacion.number}?text=${contactCotizacion.message}`;
 ---
 
 <footer class="footer">
@@ -46,7 +56,7 @@ const currentYear = new Date().getFullYear();
       <h4>Contáctanos</h4>
 
       <a
-        href="https://www.google.com/maps/place/11%C2%B054'52.7%22S+76%C2%B057'45.8%22W/@-11.9146498,-76.9627295,861m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-11.9146498!4d-76.9627295?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+        href="https://maps.app.goo.gl/uzsC8SZwbVbnKTLZ9"
         target="_blank"
         rel="noopener noreferrer"
         class="contact-item"
@@ -61,7 +71,12 @@ const currentYear = new Date().getFullYear();
         </div>
       </a>
 
-      <a href="tel:+51999316080" class="contact-item">
+      <a
+        href={linkCotizacion}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact-item"
+      >
         <div class="icon-box">📞</div>
         <div>
           <span class="label">Ventas</span>
@@ -90,7 +105,7 @@ const currentYear = new Date().getFullYear();
 
       <div class="social-links">
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/profile.php?id=61579527917531"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Síguenos en Facebook"
@@ -114,7 +129,7 @@ const currentYear = new Date().getFullYear();
         </a>
 
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/company/tuboflex-peru/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Síguenos en LinkedIn"
@@ -140,7 +155,7 @@ const currentYear = new Date().getFullYear();
         </a>
 
         <a
-          href="https://tiktok.com"
+          href="https://www.tiktok.com/@tuboflex.per?_r=1&_t=ZS-93x5b8y9F6j"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Síguenos en TikTok"
