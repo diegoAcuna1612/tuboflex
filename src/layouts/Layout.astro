@@ -1,5 +1,20 @@
 ---
 import "../styles/global.css";
+
+// Definimos props para que cada página envíe su información
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "Tuboflex Perú | Especialistas en Tubos de Aluminio Colapsibles",
+  description = "Líderes en fabricación de tubos de aluminio colapsibles en Perú para industrias farmacéuticas y cosméticas. Empaques de alta precisión y calidad.",
+  image = "/images/og-image.jpeg",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -9,7 +24,22 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
-    <title>Tuboflex Perú</title>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,6 +47,22 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Tuboflex Perú",
+        "url": "https://tuboflexperu.com",
+        "logo": "https://tuboflexperu.com/logo.png",
+        "description": "Fabricación de envases de aluminio colapsibles.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lima",
+          "addressCountry": "PE"
+        }
+      }
+    </script>
   </head>
   <body>
     <slot />
