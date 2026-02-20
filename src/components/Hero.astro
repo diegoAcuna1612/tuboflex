@@ -3,11 +3,26 @@
 
 // Solo necesitamos las URLs de las imágenes ahora
 const slides = [
-  { url: "/images/image1.jpeg" },
-  { url: "/images/image2.jpeg" },
-  { url: "/images/image3.jpeg" },
-  { url: "/images/image4.jpeg" },
-  { url: "/images/image5.jpeg" },
+  {
+    url: "/images/tubos-aluminio-farmaceuticos.jpeg",
+    alt: "Muestra de tubo de aluminio colapsible para uso farmacéutico Tuboflex Perú",
+  },
+  {
+    url: "/images/linea-produccion-tubos-aluminio.jpeg",
+    alt: "Línea de producción automatizada para tubos de aluminio colapsibles",
+  },
+  {
+    url: "/images/maquinaria-industrial-tubos.jpeg",
+    alt: "Maquinaria de alta precisión para la fabricación de envases de aluminio",
+  },
+  {
+    url: "/images/proceso-fabricacion-envases.jpeg",
+    alt: "Proceso industrial de fabricación de tubos de aluminio",
+  },
+  {
+    url: "/images/almacenamiento-tubos-aluminio.jpeg",
+    alt: "Sistema de almacenamiento y secado de tubos de aluminio colapsibles",
+  },
 ];
 ---
 
@@ -18,6 +33,8 @@ const slides = [
         <div
           class={`hero-slide ${index === 0 ? "active" : ""}`}
           style={`background-image: url(${slide.url});`}
+          role="img"
+          aria-label={slide.alt}
         >
           <div class="overlay" />
         </div>
