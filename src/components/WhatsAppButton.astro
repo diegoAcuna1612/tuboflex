@@ -1,0 +1,38 @@
+---
+const waNumber = "51984498555";
+const waLink = `https://wa.me/${waNumber}`;
+---
+
+<a
+  href={waLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chatea con nosotros por WhatsApp"
+  class="whatsapp-float"
+>
+  <i class="fa-brands fa-whatsapp fa-2x" aria-hidden="true"></i>
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    width: 56px;
+    height: 56px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+  }
+</style>

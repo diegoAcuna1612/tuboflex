@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 
 // Definimos props para que cada página envíe su información
 interface Props {
@@ -66,6 +68,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <slot />
+    <WhatsAppButton />
   </body>
 </html>
 
