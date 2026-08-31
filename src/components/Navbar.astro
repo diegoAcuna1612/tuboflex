@@ -100,12 +100,84 @@ const { activePage = "inicio" } = Astro.props;
               </Dropdown>
             </li>
 
-            <li>
-              <a
-                href="/products"
-                class={`nav-item ${activePage === "productos" ? "active" : ""}`}
-                >PRODUCTOS</a
-              >
+            <li role="none">
+              <Dropdown class="group">
+                <button
+                  class={`nav-item flex items-center gap-1 ${activePage === "productos" ? "active" : ""}`}
+                  aria-haspopup="true"
+                  role="menuitem"
+                >
+                  <span>PRODUCTOS</span>
+                  <svg
+                    class="w-3 h-3 transition-transform group-open:rotate-180"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    ><path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg
+                  >
+                </button>
+                <DropdownItems class="relative lg:absolute">
+                  <div
+                    class="dropdown-card products-dropdown-card"
+                    role="menu"
+                    aria-label="Submenu Productos"
+                  >
+                    <div class="products-dropdown-column">
+                      <span class="products-dropdown-title"
+                        >Tubos Colapsibles de Aluminio</span
+                      >
+                      <a href="/products" role="menuitem"
+                        >Tubo Ø 13.5</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >Tubo Ø 16.0</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >Tubo Ø 10.0</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >Tubo Ø 22.0</a
+                      >
+                    </div>
+                    <div class="products-dropdown-column">
+                      <span class="products-dropdown-title"
+                        >Tubos Colapsibles de Plástico</span
+                      >
+                      <a href="/products" role="menuitem"
+                        >Tubo Ø 35</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >Tubo Ø 40</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >Tubo Ø 50</a
+                      >
+                    </div>
+                    <div class="products-dropdown-column">
+                      <span class="products-dropdown-title"
+                        >Envases de Aluminio</span
+                      >
+                      <a href="/products" role="menuitem"
+                        >10.4 onz. - 310 ml. sleek</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >12 onz. - 355 ml. standard</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >12 onz. - 355 ml. sleek</a
+                      >
+                      <a href="/products" role="menuitem"
+                        >16 onz. - 473 ml. standard</a
+                      >
+                    </div>
+                  </div>
+                </DropdownItems>
+              </Dropdown>
             </li>
 
             <li>
@@ -175,10 +247,13 @@ const { activePage = "inicio" } = Astro.props;
     padding: 0.5rem 0;
     min-width: 200px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     z-index: 50;
+  }
+
+  .dropdown-toggle {
+    padding-top: 0.5rem;
   }
 
   .dropdown-card a {
@@ -192,6 +267,53 @@ const { activePage = "inicio" } = Astro.props;
   .dropdown-card a:hover {
     background: #f8f9fa;
     color: var(--primary-blue);
+  }
+
+  /* Dropdown de Productos con 3 columnas */
+  .products-dropdown-card {
+    min-width: 680px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem 0;
+  }
+
+  .products-dropdown-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1.5rem;
+  }
+
+  .products-dropdown-column:not(:last-child) {
+    border-right: 1px solid #e9ecef;
+  }
+
+  .products-dropdown-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.5rem 0 0.75rem;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 0.25rem;
+  }
+
+  .products-dropdown-column a {
+    padding: 0.6rem 0;
+  }
+
+  @media (max-width: 1023px) {
+    .products-dropdown-card {
+      min-width: 0;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .products-dropdown-column:not(:last-child) {
+      border-right: none;
+      border-bottom: 1px solid #e9ecef;
+      padding-bottom: 0.75rem;
+    }
   }
 
   /* Botones de Contacto */
@@ -240,3 +362,49 @@ const { activePage = "inicio" } = Astro.props;
     }
   }
 </style>
+
+<script>
+  const desktop = window.matchMedia("(min-width: 1024px)");
+  let openMenu = null;
+
+  function openDropdown(menu) {
+    const toggle = menu.querySelector(".dropdown-toggle");
+    menu.classList.add("open");
+    menu.setAttribute("open", "");
+    menu.setAttribute("aria-expanded", "true");
+    toggle?.classList.remove("hidden");
+    toggle?.setAttribute("aria-expanded", "true");
+  }
+
+  function closeDropdown(menu) {
+    const toggle = menu.querySelector(".dropdown-toggle");
+    menu.classList.remove("open");
+    menu.removeAttribute("open");
+    menu.setAttribute("aria-expanded", "false");
+    toggle?.classList.add("hidden");
+    toggle?.setAttribute("aria-expanded", "false");
+  }
+
+  function outermostDropdown(el) {
+    let current = el.closest(".astronav-dropdown");
+    let parent = current?.parentElement?.closest(".astronav-dropdown");
+    while (parent) {
+      current = parent;
+      parent = current.parentElement?.closest(".astronav-dropdown");
+    }
+    return current;
+  }
+
+  document.addEventListener("mouseover", (e) => {
+    if (!desktop.matches) return;
+    const menu = outermostDropdown(e.target);
+    if (menu) {
+      if (openMenu && openMenu !== menu) closeDropdown(openMenu);
+      openMenu = menu;
+      openDropdown(menu);
+    } else if (openMenu) {
+      closeDropdown(openMenu);
+      openMenu = null;
+    }
+  });
+</script>
